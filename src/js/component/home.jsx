@@ -1,72 +1,7 @@
-// import React, {useState} from "react";
-
-// //create your first component
-// const Home = () => {
-// 	const [cosas, nueva] = useState (["Estar en la playa cuando hace frio", "Ver series de Netflix", "Tomar café de grano"]);
-// 	const [input, setInput] = useState("");
-// 	return (
-// 		<div className="text-center">
-
-// 			<h1>Cosas que me hacen feliz:</h1>
-// 			<input placeholder="Escribe aquí" value={input} onChange={(event)=>{setInput(event.target.value) } } />
-// 			<button onClick={()=>{
-// 				nueva([...cosas, input])
-// 				setInput("")
-// 				}} >Agregar</button>
-
-// 			{cosas.map((value,index,arr)=>{
-// 				return <li key={index}>{value} <button>X</button> </li>
-// 			})}
-
-// 		</div>
-// 	);
-// };
-
-// export default Home;
-
 import React, { useState } from "react";
 
 import { useEffect } from "react";
 
-/*
-export default function App() {
-  const [lista, setLista] = useState([]);
-
-//   function getGoT(){
-//     fetch("https://thronesapi.com/api/v2/Characters")
-//     	.then(response=>response.json())
-//     	.then(data=>console.log(data));
-//   }
-
-  useEffect(()=>{
-    fetch("https://pokeapi.co/api/v2/pokemon")
-    	.then(response=>response.json())
-    	.then(data=>setLista(data.results));
-
-  },[])
-
-  return (
-    <div className='App'>
-      <h1>Hello</h1>
-      {lista.map((value,index)=>{
-	  	return <li>{value.name}</li>
-	  })}
-    </div>
-  )
-}
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <h1>HOLA MUNDO!</h1>
-//     </div>
-//   );
-// }
-
-
-// export default App; 
-*/
 
 export default function App() {
   const [lista, agregar] = useState([]);
@@ -85,7 +20,7 @@ export default function App() {
     };
 
     fetch(
-      "https://assets.breatheco.de/apis/fake/todos/user/naturalis",
+      "https://assets.breatheco.de/apis/fake/todos/user/tamarasalas",
       requestOptions
     )
       .then((response) => response.text())
@@ -94,7 +29,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    fetch("https://assets.breatheco.de/apis/fake/todos/user/naturalis")
+    fetch("https://assets.breatheco.de/apis/fake/todos/user/tamarasalas")
       .then((response) => response.json())
       .then((data) => agregar(data));
   }, []);
@@ -117,7 +52,7 @@ export default function App() {
       {lista.map((elm, index) => {
         return <li key={index}>{elm.label} </li>;
       })}
-      <p>Te falta {lista.length} tareas por terminar</p>
+      <p>Te faltan {lista.length} tareas por terminar</p>
     </div>
   );
 }
